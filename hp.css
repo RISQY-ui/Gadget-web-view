@@ -1,0 +1,320 @@
+/* ===== RESET & GLOBAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, purple, #302b63, #24243e);
+    color: white;
+    min-height: 100vh;
+}
+
+/* ===== NAVIGATION BAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(155, 41, 144, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ff6b6b;
+    transition: transform 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.nav-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.nav-list li a:hover {
+    background: #ff6b6b;
+    color: #1a1a2e;
+}
+
+.rightNav {
+    display: flex;
+    gap: 10px;
+}
+
+#search {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    width: 200px;
+    font-size: 14px;
+}
+
+.btn {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #ff4757;
+    transform: scale(1.05);
+}
+
+/* ===== SLIDER CSS (YANG DIPERINDAH) ===== */
+.slider-container {
+    max-width: 1000px;
+    width: 90%;
+    margin: 50px auto;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255, 107, 107, 0.3);
+}
+
+/* Aspek rasio responsif */
+.slider-container {
+    aspect-ratio: 16 / 9;
+}
+
+/* Sembunyikan radio button */
+input[name="slider"] {
+    display: none;
+}
+
+/* Wrapper slide */
+.slider-wrapper {
+    width: 300%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Setiap slide */
+.slide {
+    width: 33.333%;
+    height: 100%;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.slide:hover img {
+    transform: scale(1.05);
+}
+
+/* Caption styling modern */
+.caption {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(12px);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+    border-left: 4px solid #ff6b6b;
+    font-family: 'Segoe UI', sans-serif;
+    transition: 0.3s;
+}
+
+.slide:hover .caption {
+    background: rgba(255, 107, 107, 0.85);
+    transform: translateY(-5px);
+}
+
+/* Logika pergeseran slider */
+#s1:checked ~ .slider-wrapper {
+    transform: translateX(0%);
+}
+
+#s2:checked ~ .slider-wrapper {
+    transform: translateX(-33.333%);
+}
+
+#s3:checked ~ .slider-wrapper {
+    transform: translateX(-66.666%);
+}
+
+/* Dots styling */
+.dots-container {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid white;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.3);
+}
+
+/* Dot aktif */
+#s1:checked ~ .dots-container label[for="s1"],
+#s2:checked ~ .dots-container label[for="s2"],
+#s3:checked ~ .dots-container label[for="s3"] {
+    background: #ff6b6b;
+    width: 30px;
+    border-radius: 20px;
+    border-color: #ff6b6b;
+}
+
+/* ===== SECTION ===== */
+.firstsection {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    margin: 40px auto;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.box-main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.text-big {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ff6b6b, #ffa502);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.text-small {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.text-footer {
+    color: #ff6b6b;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .rightNav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #search {
+        width: 60%;
+    }
+
+    .caption {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+    }
+
+    .text-big {
+        font-size: 1.8rem;
+    }
+
+    .text-small {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .caption {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    #s1:checked ~ .dots-container label[for="s1"],
+    #s2:checked ~ .dots-container label[for="s2"],
+    #s3:checked ~ .dots-container label[for="s3"] {
+        width: 20px;
+    }
+}
